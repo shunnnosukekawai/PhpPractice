@@ -1,12 +1,16 @@
 <?php
-$box1 = trim(fgets(STDIN));
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+    $input = fgets(STDIN);
+    $a = explode(" " , $input);
+    foreach($a as $key => $value){
+            if($a[0]= $key){
+                echo $value . ".";
+            } else{
+            echo "Hello" . $value . ",";
+            }
 
-$pass = explode(" ", $box1);
+    }
 
-if ($pass[0] > $pass[1]) {
-echo $pass[0];
-} elseif ($pass[0] < $pass[1]) {
-echo $pass[1];
-} elseif ($pass[0] == $pass[1]) {
-echo "eq";
-}
+
+?>
