@@ -1,31 +1,25 @@
-
 <?php
-//改行を消す関数です
-function killNewLine($string){
-    return $string = str_ireplace(array("\r\n", "\r", "\n"),'',$string);
-}
-$max = killNewLine(fgets(STDIN));
-$iPV4[$max] = 0;
-for($i=0;$i<$max;$i++){
-    $iPV4[$i] = explode('.',killNewLine(fgets(STDIN)));
-}
-for($i=0;$i<$max;$i++){
-    $flag=true;
-    for($j=0;$j<4;$j++){
-        if(count($iPV4[$i])!=4){
-            $flag=false;
-        }
-        elseif($iPV4[$i][$j]>255 || $iPV4[$i][$j]<0){
-            $flag=false;
-        }
+function foo($spaceline){
+    return $spaceline = str_ireplace(array("\r\n","\n","\r"," ",),'',$spaceline);
     }
-    if($flag){
-        echo 'True';
-    }else{
-        echo 'False';
+    $number = foo(fgets(STDIN));
+    for($i=0;$i<$number;$i++){
+        $ip[$i] = explode(".",foo(fgets(STDIN)));
+
     }
-    if($i!=$max-1){
+    for($i=0;$i<$number;$i++){
+         $answer= "True";
+         for($j=0;$j<4;$j++){
+             if(count($ip[$i])!=4){
+                 $answer ="False";
+             }elseif(0>$ip[$i][$j] || $ip[$i][$j]>100){
+                 $answer="False";
+             }
+         }
+
+    echo $answer;
+    if($i!=$number-1){
         echo "\n";
     }
-}
+    }
 ?>
